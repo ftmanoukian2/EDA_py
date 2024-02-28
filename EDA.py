@@ -8,6 +8,8 @@ for pin in idx:
 def Fijar_salida_digital(salida : int, estado : bool) -> None :
     if salida >= 1 and salida <= 4:
         d_outs[salida - 1].value(estado)
+    else:
+        print("Número de salida inválido (1-4)")
        
 idx = [32,33,25,26]
 pwm_outs = []
@@ -15,10 +17,15 @@ for pin in idx:
     pwm_outs.append(PWM(Pin(pin), freq = 50))
     
 def Fijar_salida_analogica(salida : int, valor : int) -> None:
-    if (salida >= 1 and salida <= 4) and (valor >= 0 and valor <= 1023):
-        pwm_outs[salida - 1].duty(int(valor))
+    if (salida >= 1 and salida <= 4):
+        if(valor >= 0 and valor <= 1023):
+            pwm_outs[salida - 1].duty(int(valor))
+        else:
+            print("Valor de salida inválido (0-1023)")
+    else:
+        print("Número de salida inválido (1-4)")
          
-idx = [36,39,34,35]        
+idx = [35,34,39,36]        
 adc_ins = []
 for pin in idx:
     adc_ins.append(ADC(Pin(pin), atten = ADC.ATTN_11DB))
@@ -27,6 +34,7 @@ def Leer_entrada_analogica(entrada : int) -> int:
     if(entrada >= 1 and entrada <= 4):
         return adc_ins[entrada - 1].read_u16()
     else:
+        print("Número de entrada inválido (1-4)")
         return -1
         
 idx = [0,15,2,4]
@@ -38,6 +46,7 @@ def Leer_entrada_digital(entrada : int) -> int:
     if(entrada >= 1 and salida <= 4):
         return d_ins[entrada - 1].value()
     else:
+        print("Número de entrada inválido (1-4)")
         return -1
     
 del idx
