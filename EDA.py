@@ -32,7 +32,7 @@ for pin in idx:
     
 def Leer_entrada_analogica(entrada : int) -> int:
     if(entrada >= 1 and entrada <= 4):
-        return adc_ins[entrada - 1].read_u16() / 65535
+        return adc_ins[entrada - 1].read_u16() / 65.535
     else:
         print("Número de entrada inválido (1-4)")
         return -1
