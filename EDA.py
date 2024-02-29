@@ -18,10 +18,10 @@ for pin in idx:
     
 def Fijar_salida_analogica(salida : int, valor : int) -> None:
     if (salida >= 1 and salida <= 4):
-        if(valor >= 0 and valor <= 1023):
-            pwm_outs[salida - 1].duty(int(valor))
+        if(valor >= 0 and valor <= 100):
+            pwm_outs[salida - 1].duty(int(valor) * 10.23)
         else:
-            print("Valor de salida inválido (0-1023)")
+            print("Valor de salida inválido (0-100)")
     else:
         print("Número de salida inválido (1-4)")
          
@@ -32,7 +32,7 @@ for pin in idx:
     
 def Leer_entrada_analogica(entrada : int) -> int:
     if(entrada >= 1 and entrada <= 4):
-        return adc_ins[entrada - 1].read_u16()
+        return adc_ins[entrada - 1].read_u16() / 65535
     else:
         print("Número de entrada inválido (1-4)")
         return -1
