@@ -21,7 +21,7 @@ Esta extensión está en desarrollo (última actualización: 28/2/2024). La sint
 
 * Fijar_salida_analogica(salida, valor)
     * salida: 1-4
-    * valor: 0-1023
+    * valor: 0-100
 
 * Leer_entrada_digital(entrada)
     * entrada: 1-4
@@ -29,4 +29,4 @@ Esta extensión está en desarrollo (última actualización: 28/2/2024). La sint
 
 * Leer_entrada_digital(entrada)
     * entrada: 1-4
-    * retorno: 0-65535
+    * retorno: 0-100
