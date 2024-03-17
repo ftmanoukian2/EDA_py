@@ -43,10 +43,15 @@ for pin in idx:
     d_ins.append(Pin(pin,Pin.IN))
     
 def Leer_entrada_digital(entrada : int) -> int:
-    if(entrada >= 1 and salida <= 4):
+    if(entrada >= 1 and entrada <= 4):
         return d_ins[entrada - 1].value()
     else:
         print("Número de entrada inválido (1-4)")
         return -1
+
+A_IN = Leer_entrada_analogica
+A_OUT = Fijar_salida_analogica
+D_IN = Leer_entrada_digital
+D_OUT = Fijar_salida_digital
     
 del idx
